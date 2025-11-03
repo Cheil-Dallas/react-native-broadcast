@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "react-native": "index.js",
+  "types": "index.d.ts",
   "files": [
     "android",
     "index.js"
