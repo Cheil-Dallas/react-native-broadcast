@@ -1,0 +1,24 @@
+{
+  "name": "@cheil/react-native-broadcast",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "react-native": "index.js",
+  "files": [
+    "android",
+    "index.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cheil-Dallas/react-native-broadcast.git"
+  },
+  "keywords": ["react-native", "broadcast", "intent"],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Cheil-Dallas/react-native-broadcast/issues"
+  },
+  "homepage": "https://github.com/Cheil-Dallas/react-native-broadcast#readme"
+}
