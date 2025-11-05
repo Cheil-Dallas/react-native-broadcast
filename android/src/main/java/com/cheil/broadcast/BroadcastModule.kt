@@ -68,26 +68,8 @@ class BroadcastModule(private val reactContext: ReactApplicationContext) :
     }
 
     private fun openSamsungNotes(context: Context) {
-        val candidates = listOf(
-            "com.samsung.android.app.notes",
-            "com.samsung.android.snote",      // older Samsung Notes
-            "com.samsung.notes",              // tablet versions
-            "com.samsung.android.note"        // OneUI variations
-        )
-
-        for (pkg in candidates) {
-            val intent = context.packageManager.getLaunchIntentForPackage(pkg)
-            if (intent != null) {
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                context.startActivity(intent)
-                Log.d("BroadcastModule", "Samsung Notes opened with: $pkg")
-                return
-            }
-        }
-
-        Log.w("BroadcastModule", "Samsung Notes app not found in any known package list")
+        launchApp(context, "com.samsung.android.app.notes", "Samsung Notes")
     }
-
 
     private fun openGallery(context: Context) {
         try {
