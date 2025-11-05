@@ -1,14 +1,2 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cheil.broadcast">
-
-    <application>
-        <receiver
-            android:name="com.cheil.broadcast.TestReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.cheil.action.OPEN_WALLET"/>
-            </intent-filter>
-        </receiver>
-    </application>
-
-</manifest>
+    package="com.cheil.broadcast"/>
