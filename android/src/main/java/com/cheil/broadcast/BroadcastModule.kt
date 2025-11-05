@@ -18,10 +18,12 @@ class BroadcastModule(private val reactContext: ReactApplicationContext) :
     fun sendBroadcast(command: String) {
         Log.d("BroadcastModule", "Received Command: $command")
 
+        /*
         if (handleInternalCommand(command)) {
             Log.d("BroadcastModule", "Internal handler executed: $command")
             return
         }
+        */
 
         val intent = Intent(command)
         reactContext.sendBroadcast(intent)
