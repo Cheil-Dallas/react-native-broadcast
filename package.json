@@ -5,6 +5,7 @@
   "main": "index.js",
   "react-native": "index.js",
   "types": "index.d.ts",
+  "private": false,
   "files": [
     "android",
     "index.js",
