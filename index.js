@@ -7,3 +7,9 @@ export function sendBroadcast(action) {
     BroadcastModule.sendBroadcast(action);
   }
 }
+
+export function openCamera() {
+  if (Platform.OS === 'android') {
+    BroadcastModule.openCamera();
+  }
+}

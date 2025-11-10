@@ -29,6 +29,21 @@ class BroadcastModule(private val reactContext: ReactApplicationContext) :
         reactContext.sendBroadcast(intent)
         Log.d("BroadcastModule", "Broadcast Sent: $command")
     }
+    
+    /**
+     * Open system camera app directly
+     */
+    @ReactMethod
+    fun openCamera() {
+        try {
+            val intent = Intent("android.media.action.STILL_IMAGE_CAMERA")
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            reactContext.startActivity(intent)
+            Log.d("BroadcastModule", "Camera opened successfully.")
+        } catch (e: Exception) {
+            Log.e("BroadcastModule", "Failed to open camera", e)
+        }
+    }
 
     private fun handleInternalCommand(command: String): Boolean {
         return when (command) {
