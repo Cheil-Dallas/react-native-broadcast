@@ -1,4 +1,4 @@
-package com.yourappname
+package com.cheil.broadcast
 
 import android.app.Application
 import com.facebook.react.PackageList
@@ -8,7 +8,7 @@ import com.facebook.react.ReactPackage
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.soloader.SoLoader
-import com.yourpackage.broadcast.BroadcastPackage  // Add this import
+import com.cheil.broadcast.BroadcastPackage  // Add this import
 
 class MainApplication : Application(), ReactApplication {
 
