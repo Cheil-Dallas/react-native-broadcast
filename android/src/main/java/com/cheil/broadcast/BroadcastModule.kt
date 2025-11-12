@@ -16,10 +16,10 @@ class BroadcastModule(private val reactContext: ReactApplicationContext) :
 
     @ReactMethod
     fun sendBroadcast(action: String) {
-        val intent = Intent("com.samsung.retailexperience.standout.ACTION_SEND_MESSAGE")
+        val intent = Intent("com.samsung.retailexperience.ACTION_SEND_MESSAGE")
         intent.putExtra("command", action)
         reactContext.sendBroadcast(intent)
-        Log.d("BroadcastModule", "Broadcast sent -> com.samsung.retailexperience.standout.ACTION_SEND_MESSAGE | command=$action")
+        Log.d("BroadcastModule", "Broadcast sent -> com.samsung.retailexperience.ACTION_SEND_MESSAGE | command=$action")
     }
 
     /**
@@ -29,7 +29,7 @@ class BroadcastModule(private val reactContext: ReactApplicationContext) :
     fun openCamera() {
         val command = "OPEN:CAMERA";
 
-        val intent = Intent("com.samsung.retailexperience.standout.ACTION_SEND_MESSAGE")
+        val intent = Intent("com.samsung.retailexperience.ACTION_SEND_MESSAGE")
         intent.putExtra("command", command)
         reactContext.sendBroadcast(intent)
         Log.d("BroadcastModule", "Broadcast Sent: $command")
