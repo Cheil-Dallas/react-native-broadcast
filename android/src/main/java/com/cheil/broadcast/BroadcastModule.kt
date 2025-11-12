@@ -15,19 +15,11 @@ class BroadcastModule(private val reactContext: ReactApplicationContext) :
     override fun getName(): String = "BroadcastModule"
 
     @ReactMethod
-    fun sendBroadcast(command: String) {
-        Log.d("BroadcastModule", "Received Command: $command")
-
-        /*
-        if (handleInternalCommand(command)) {
-            Log.d("BroadcastModule", "Internal handler executed: $command")
-            return
-        }
-        */
-
-        val intent = Intent(command)
+    fun sendBroadcast(action: String) {
+        val intent = Intent("com.samsung.retailexperience.standout.ACTION_SEND_MESSAGE")
+        intent.putExtra("command", action)
         reactContext.sendBroadcast(intent)
-        Log.d("BroadcastModule", "Broadcast Sent: $command")
+        Log.d("BroadcastModule", "Broadcast sent -> com.samsung.retailexperience.standout.ACTION_SEND_MESSAGE | command=$action")
     }
 
     /**
@@ -37,7 +29,8 @@ class BroadcastModule(private val reactContext: ReactApplicationContext) :
     fun openCamera() {
         val command = "OPEN:CAMERA";
 
-        val intent = Intent(command)
+        val intent = Intent("com.samsung.retailexperience.standout.ACTION_SEND_MESSAGE")
+        intent.putExtra("command", command)
         reactContext.sendBroadcast(intent)
         Log.d("BroadcastModule", "Broadcast Sent: $command")
     }
