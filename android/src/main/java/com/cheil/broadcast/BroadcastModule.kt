@@ -16,10 +16,19 @@ class BroadcastModule(private val reactContext: ReactApplicationContext) :
 
     @ReactMethod
     fun sendBroadcast(action: String) {
-        val intent = Intent("com.samsung.retailexperience.ACTION_SEND_MESSAGE")
-        intent.putExtra("command", action)
-        reactContext.sendBroadcast(intent)
-        Log.d("BroadcastModule", "Broadcast sent -> com.samsung.retailexperience.ACTION_SEND_MESSAGE | command=$action")
+        val targetPackage = "com.samsung.retailexperience.tablet.retail_service"
+
+        val intent = Intent("com.samsung.retailexperience.ACTION_SEND_MESSAGE").apply{
+            setPackage(targetPackage)
+        }
+
+        try {
+            intent.putExtra("command", action)
+            reactContext.sendBroadcast(intent)
+            Log.d("BroadcastModule", "Broadcast sent -> com.samsung.retailexperience.ACTION_SEND_MESSAGE | command=$action")
+        } catch (e: Exception) {
+            Log.e("BroadcastModule", "Error when sending broadcast $action", e)
+        }
     }
 
     /**
@@ -28,11 +37,19 @@ class BroadcastModule(private val reactContext: ReactApplicationContext) :
     @ReactMethod
     fun openCamera() {
         val command = "OPEN:CAMERA";
+        val targetPackage = "com.samsung.retailexperience.tablet.retail_service"
 
-        val intent = Intent("com.samsung.retailexperience.ACTION_SEND_MESSAGE")
-        intent.putExtra("command", command)
-        reactContext.sendBroadcast(intent)
-        Log.d("BroadcastModule", "Broadcast Sent: $command")
+        val intent = Intent("com.samsung.retailexperience.ACTION_SEND_MESSAGE").apply{
+            setPackage(targetPackage)
+        };
+
+        try {
+            intent.putExtra("command", command)
+            reactContext.sendBroadcast(intent)
+            Log.d("BroadcastModule", "Broadcast Sent -> com.samsung.retailexperience.ACTION_SEND_MESSAGE | command=$command")
+        } catch (e: Exception) {
+            Log.e("BroadcastModule", "Error when sending broadcast $command", e)
+        }
     }
 
     private fun handleInternalCommand(command: String): Boolean {
