@@ -6,7 +6,7 @@ import com.facebook.react.uimanager.ViewManager
 
 class BroadcastPackage : ReactPackage {
     override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> =
-        listOf(BroadcastModule(reactContext))
+        listOf(BroadcastModule(reactContext), BroadcastModuleV2(reactContext))
 
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> =
         emptyList()
