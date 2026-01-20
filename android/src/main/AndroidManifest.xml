@@ -2,5 +2,5 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-sdk
-        tools:overrideLibrary="com.cheil.broadcast" />
+        tools:overrideLibrary="com.samsung.retailexperience.standoutlib" />
 </manifest>
