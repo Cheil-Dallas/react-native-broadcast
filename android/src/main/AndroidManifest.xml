@@ -1,2 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cheil.broadcast"/>
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-sdk
+        tools:overrideLibrary="com.samsung.retailexperience.standoutlib" />
+</manifest>
